@@ -14,12 +14,12 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
   <div className="w-full flex flex-row items-center hover:bg-[#e74228] py-2 p-4 rounded-lg cursor-pointer mb-2">
     <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
     <div className="flex-1 flex flex-row justify-between items-center">
-      <img className="w-20 h-20 rounded-lg" src={song?.images?.coverart} alt={song?.title} />
+      <img className="w-16 h-16 rounded-lg" src={song?.images?.coverart} alt={song?.title} />
       <div className="flex-1 flex-col justify-center mx-3">
-        <Link to={`/song/${song?.key}`}>
+        <Link to={`/songs/${song?.key}`}>
           <p className="text-xl font-bold text-white">{song?.title}</p>
         </Link>
-        <Link to={`/song/${song?.artists[0].adamid}`}>
+        <Link to={`/songs/${song?.artists[0].adamid}`}>
           <p className="text-base text-gray-300 mt-1">{song?.subtitle}</p>
         </Link>
       </div>
@@ -38,7 +38,7 @@ const TopPlay = () => {
     divRef.current.scrollIntoView({ behaviour: 'smooth' });
   });
 
-  const topPlays = data?.tracks.slice(0, 5);
+  const topPlays = data?.tracks.slice(0, 10);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -59,7 +59,7 @@ const TopPlay = () => {
           </Link>
         </div>
         <div className="mt-4 flex flex-col gap-1">
-          {topPlays?.map((song, i) => (
+          {topPlays?.slice(0, 5).map((song, i) => (
             <TopChartCard song={song} i={i} key={song.key} isPlaying={isPlaying} activeSong={activeSong} handlePauseClick={handlePauseClick} handlePlayClick={() => handlePlayClick(song, i)} />
           ))}
         </div>
@@ -73,7 +73,7 @@ const TopPlay = () => {
         </div>
         <Swiper slidesPerView="auto" spaceBetween={15} freeMode centeredSlides centeredSlidesBounds modules={[FreeMode]} className="mt-4">
           {topPlays?.map((song) => (
-            <SwiperSlide key={song?.key} style={{ width: '25%', height: 'auto' }} className="shadow-lg rounded-full animate-slideright">
+            <SwiperSlide key={song?.key} style={{ width: '19%', height: 'auto' }} className="shadow-lg rounded-full animate-slideright">
               <Link to={`/artists/${song?.artists[0].adamid}`}>
                 <img src={song?.images.background} alt="name" className="rounded-full w-full object-cover" />
               </Link>

@@ -1,4 +1,4 @@
-import { HiOutlineHashtag, HiOutlineHome, HiOutlineMenu, HiOutlinePhotograph, HiOutlineUserGroup } from 'react-icons/hi';
+import { HiOutlineHashtag, HiOutlineHome, HiOutlinePhotograph, HiOutlineUserGroup } from 'react-icons/hi';
 
 export const genres = [
   { title: 'Pop', value: 'POP' },
@@ -8,8 +8,6 @@ export const genres = [
   { title: 'Soul', value: 'SOUL_RNB' },
   { title: 'Alternative', value: 'ALTERNATIVE' },
   { title: 'Rock', value: 'ROCK' },
-  { title: 'Indie', value: 'INDIE' },
-  { title: 'Metal', value: 'METAL' },
   { title: 'Latin', value: 'LATIN' },
   { title: 'Film', value: 'FILM_TV' },
   { title: 'Country', value: 'COUNTRY' },
@@ -24,5 +22,4 @@ export const links = [
   { name: 'Around You', to: '/around-you', icon: HiOutlinePhotograph },
   { name: 'Top Artists', to: '/top-artists', icon: HiOutlineUserGroup },
   { name: 'Top Charts', to: '/top-charts', icon: HiOutlineHashtag },
-  { name: 'Playlists', to: '/playlists', icon: HiOutlineMenu },
 ];
