@@ -1,10 +1,18 @@
 import { Link } from 'react-router-dom';
 
 const DetailsHeader = ({ artistId, artistData, songData }) => {
-  const artist = artistData?.artists[artistId].attributes;
+  let artist;
+  if (artistData?.artists) {
+    artist = artistData.artists[artistId].attributes;
+  }
+
+  if (artistData?.data) {
+    artist = artistData.data[0].attributes;
+  }
+
   return (
     <div className="relative w-full flex flex-col">
-      <div className="w-full bg-gradient-to-l from-transparent to-[#251308] sm:h-40 h-20 rounded-sm" />
+      <div className="w-full bg-gradient-to-l from-transparent to-[#1b0b01] sm:h-40 h-20 rounded-sm" />
       <div className="absolute inset-0 flex items-center left-[1px]">
         <img
           alt="art"
